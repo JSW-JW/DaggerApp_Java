@@ -1,4 +1,4 @@
-# Flow to learn how to use Dagger in this app.
+# Flow to learn how to use Dagger in this app. <In Progress>
 
 1. DaggerApplication > DaggerAppComponent(Application Level Component). Inject dependency from AppComponent(Server, Service) to Application(Client)
 2. At the view level, activities and fragments will be acting as clients. And we have components acting as the services.(Client-Service)
@@ -19,3 +19,8 @@
 
 ----------------------AppComponent(@Singleton)-----------------------
 AuthComponent       /      MainComponent        /       AuthComponent
+
+# + Addtional things I got to learn practicing this app.
+* When annotating models for Retrofit request models, it's not necessarily annotated with "@SerializedName". It has no effect if your variable name already matches the corresponding field name in the JSON.
+* You don't have to use @Expose as well. As per official documentation: "This annotation has no effect unless you build Gson with a GsonBuilder and invoke GsonBuilder.excludeFieldsWithoutExposeAnnotation() method."
+
