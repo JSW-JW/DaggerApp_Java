@@ -8,6 +8,10 @@
 6. Map multiBinding concepts(kind of mapping similar dependencies into a group, marking them with key, and inject them.)  
 
 
+# Guide about flow of injection.
+* Retrofit Instance & AuthApi Injection -> AppModule -> AppComponent -> AuthActivity(AuthActivitySubComponent) inside ActivitiyBuildersModule -> AuthModule, AuthViewModel
+
+
 # Structure of Components
 
 ----------------------AppComponent(@Singleton)-----------------------
