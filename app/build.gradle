@@ -14,10 +14,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions{
+        exclude 'META-INF/rxjava.properties'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 
     buildTypes {
         release {
@@ -58,5 +63,12 @@ dependencies {
     def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // RxJava
+    def rxjava_version = '2.1.1'
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+
+    // Call Adapter
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
 }

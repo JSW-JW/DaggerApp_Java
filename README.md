@@ -11,6 +11,9 @@
 # Guide about flow of injection.
 * Retrofit Instance & AuthApi Injection -> AppModule -> AppComponent -> AuthActivity(AuthActivitySubComponent) inside ActivitiyBuildersModule -> AuthModule, AuthViewModel
 
+# why receive Flowable Object when make a retrofit request?
+* We don't need to touch thread stuff like Executors. And we can convert it to livedata later.
+* And for the convert of Call object to Flowable object, we need call adapter-Rxjava2.
 
 # Structure of Components
 
