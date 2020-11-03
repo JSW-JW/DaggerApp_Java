@@ -34,3 +34,4 @@ AuthComponent       /      MainComponent        /       AuthComponent
 # Confusing things
 
 * why @Inject in the ViewModel Constructor?
+* why listResource.data.get(0) gives me NPE?(PostsFragments.java) 
