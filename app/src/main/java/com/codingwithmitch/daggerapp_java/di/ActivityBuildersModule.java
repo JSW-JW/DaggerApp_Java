@@ -22,6 +22,7 @@ public abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(
             modules = {MainFragmentBuildersModule.class, MainViewModelsModule.class, MainModule.class}
-    ) // it means MainFragment can only be alive inside of the MainSubComponent scope.
+    ) // it means dependencies(MainFragment, MainViewModel, MainModule) can only be alive inside of the MainSubComponent scope.
+    // And MainModule is included in this MainComponent. It means it can provide MainApi to the MainComponent dependencies & MainActivity.
     abstract MainActivity contributeMainActivity();
 }
