@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    @SerializedName("id")  // tells the gson converter what to look for in the Json object and to parse it.
-    @Expose
+    @SerializedName("id")  // tells the gson converter what to look for in the Json object and to parse it.(not always necessary if the variable name matches the corresponding field name)
+    @Expose // this is also not necessary except for certain case.
     private int id;
 
     @SerializedName("username")
