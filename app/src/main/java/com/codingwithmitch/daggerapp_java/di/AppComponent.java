@@ -3,7 +3,7 @@ package com.codingwithmitch.daggerapp_java.di;
 import android.app.Application;
 
 import com.codingwithmitch.daggerapp_java.BaseApplication;
-import com.codingwithmitch.daggerapp_java.viewmodels.ViewModelProviderFactory;
+import com.codingwithmitch.daggerapp_java.SessionManager;
 
 import javax.inject.Singleton;
 
@@ -23,7 +23,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
 
-
+    SessionManager sessionManager();
 
     @Component.Builder
     interface Builder{
