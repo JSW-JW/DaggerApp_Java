@@ -1,5 +1,6 @@
 package com.codingwithmitch.daggerapp_java.ui.auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bumptech.glide.RequestManager;
 import com.codingwithmitch.daggerapp_java.R;
 import com.codingwithmitch.daggerapp_java.models.User;
+import com.codingwithmitch.daggerapp_java.ui.main.MainActivity;
 import com.codingwithmitch.daggerapp_java.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
@@ -68,6 +70,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         case AUTHENTICATED: {
                             showProgressBar(false);
                             Log.d(TAG, "onChanged: LOGIN SUCCESS " + userAuthResource.data.getEmail());
+                            onLoginSuccess();
                             break;
                         }
                         case ERROR: {
@@ -83,6 +86,12 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                 }
             }
         });
+    }
+
+    private void onLoginSuccess(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void showProgressBar(boolean isVisible){
