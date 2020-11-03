@@ -2,6 +2,7 @@ package com.codingwithmitch.daggerapp_java.di;
 
 import com.codingwithmitch.daggerapp_java.di.auth.AuthModule;
 import com.codingwithmitch.daggerapp_java.di.auth.AuthViewModelsModule;
+import com.codingwithmitch.daggerapp_java.di.main.MainFragmentBuildersModule;
 import com.codingwithmitch.daggerapp_java.ui.auth.AuthActivity;
 import com.codingwithmitch.daggerapp_java.ui.main.MainActivity;
 
@@ -17,6 +18,8 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity(); // if you have 10 activities, should add 10 annotations like this.
     // When we @ContributesAndroidInjector... , this makes a subComponent and declares its modules that can only be accessible in that subComponent.
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+            modules = {MainFragmentBuildersModule.class}
+    ) // it means MainFragment can only be alive inside of the MainSubComponent scope.
     abstract MainActivity contributeMainActivity();
 }
