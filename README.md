@@ -24,3 +24,8 @@ AuthComponent       /      MainComponent        /       AuthComponent
 * When annotating models for Retrofit request models, it's not necessarily annotated with "@SerializedName". It has no effect if your variable name already matches the corresponding field name in the JSON.
 * You don't have to use @Expose as well. As per official documentation: "This annotation has no effect unless you build Gson with a GsonBuilder and invoke GsonBuilder.excludeFieldsWithoutExposeAnnotation() method."
 * When @ContributesAndroidInjector performs, it actually generate 'subcomponent' and we can check it in the generated java code. It performs exactly the same.
+
+
+# Fragment's different behavior related with observers, daggers, and things like that
+
+* Fragment has its own lifecycle. This is why we need to remove the observer. Otherwise, we will get kind of weird behavior like observers left floating around memory.
