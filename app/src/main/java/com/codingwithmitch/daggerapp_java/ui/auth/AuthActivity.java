@@ -69,7 +69,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                         }
                         case AUTHENTICATED: {
                             showProgressBar(false);
-                            Log.d(TAG, "onChanged: LOGIN SUCCESS " + userAuthResource.data.getEmail());
+                            Log.d(TAG, "onChanged: LOGIN SUCCESS " + userAuthResource.data.getId());
                             onLoginSuccess();
                             break;
                         }
