@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.codingwithmitch.daggerapp_java.BaseActivity;
 import com.codingwithmitch.daggerapp_java.R;
-import com.codingwithmitch.daggerapp_java.ui.main.profile.ProfileFragment;
+import com.codingwithmitch.daggerapp_java.ui.main.posts.PostsFragments;
 
 public class MainActivity extends BaseActivity {
 
@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
 
     private void testFramgnet(){
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_container, new ProfileFragment())
+                .replace(R.id.main_container, new PostsFragments())
                 .commit();
     }
 
