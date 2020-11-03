@@ -54,6 +54,7 @@ public class ProfileFragment extends DaggerFragment {
      * of lifecycle. So it's basically immune to configuration changes or any other small things.
      * In case of this example, every time the view is created, user object is updated and there is
      * possibility that it can be null. It will crash our app. */
+        subscribeObservers();
 
     }
 
@@ -65,6 +66,7 @@ public class ProfileFragment extends DaggerFragment {
             @Override
             public void onChanged(AuthResource<User> authResource) {
                 if(authResource != null) {
+                    Log.d(TAG, "onChanged: " + authResource.status);
                     switch (authResource.status) {
                         case AUTHENTICATED:{
                             setUserDetails(authResource.data);

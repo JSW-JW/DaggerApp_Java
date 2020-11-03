@@ -10,7 +10,9 @@ import com.codingwithmitch.daggerapp_java.models.User;
 import com.codingwithmitch.daggerapp_java.ui.auth.AuthResource;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class SessionManager {
 
     private static final String TAG = "SessionManager";
