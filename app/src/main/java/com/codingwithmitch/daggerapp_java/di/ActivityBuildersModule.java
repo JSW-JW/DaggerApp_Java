@@ -17,8 +17,6 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity(); // if you have 10 activities, should add 10 annotations like this.
     // When we @ContributesAndroidInjector... , this makes a subComponent and declares its modules that can only be accessible in that subComponent.
 
-    @ContributesAndroidInjector(
-
-    )
+    @ContributesAndroidInjector
     abstract MainActivity contributeMainActivity();
 }
