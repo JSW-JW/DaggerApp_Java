@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">DaggerApp_Java</string>
     <string name="logout">logout</string>
+    <string name="profile">profile</string>
+    <string name="posts">posts</string>
 
 </resources>

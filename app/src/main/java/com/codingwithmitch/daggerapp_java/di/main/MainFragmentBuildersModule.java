@@ -1,6 +1,6 @@
 package com.codingwithmitch.daggerapp_java.di.main;
 
-import com.codingwithmitch.daggerapp_java.ui.main.posts.PostsFragments;
+import com.codingwithmitch.daggerapp_java.ui.main.posts.PostsFragment;
 import com.codingwithmitch.daggerapp_java.ui.main.profile.ProfileFragment;
 
 import dagger.Module;
@@ -13,5 +13,5 @@ public abstract class MainFragmentBuildersModule {
     abstract ProfileFragment contributeProfileFragment();
 
     @ContributesAndroidInjector
-    abstract PostsFragments contributePostsFragment();
+    abstract PostsFragment contributePostsFragment();
 }
