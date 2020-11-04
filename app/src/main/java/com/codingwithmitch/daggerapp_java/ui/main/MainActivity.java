@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
@@ -56,6 +57,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 sessionManager.logOut();
                 return true;
             }
+            case android.R.id.home:{  // reference the backArrow
+                if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -65,16 +75,34 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         switch (item.getItemId()) {
             case R.id.nav_profile: {
-                Navigation.findNavController(this, R.id.nav_host_fragment_container).navigate(R.id.profileScreen);
+                NavOptions navOptions = new NavOptions.Builder()
+                        .setPopUpTo(R.id.profileScreen, true)
+                        .build();
+                 /*destinationId	int: The destination to pop up to, clearing all intervening destinations.
+                 inclusive	boolean: true to also pop the given destination from the back stack.*/
+
+                Navigation.findNavController(this, R.id.nav_host_fragment_container).navigate(
+                        R.id.profileScreen, null, navOptions);
                 break;
             }
             case R.id.nav_posts: {
-                Navigation.findNavController(this, R.id.nav_host_fragment_container).navigate(R.id.postsScreen);
+                if(isValidDestination(R.id.postsScreen)) {
+                    Navigation.findNavController(this, R.id.nav_host_fragment_container).navigate(R.id.postsScreen);
+                }
                 break;
             }
         }
         item.setChecked(true);  // highlight the selected item from drawer.
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {  // navigateUp config : when navigate up, reference the navController and drawerLayout.(show the drawer)
+        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment_container), drawerLayout);
+    }
+
+    private boolean isValidDestination(int destination){
+        return destination != Navigation.findNavController(this, R.id.nav_host_fragment_container).getCurrentDestination().getId();
     }
 }
